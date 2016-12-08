@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login-in.css"/>
+	</head>
+	<body>	
+		<div id="head">
+			<div class="layout-header">
+				<h1>
+					<a href="index.html">
+						<img src="img/login-logo.png" />
+					</a>
+				</h1>
+			</div>
+		</div>
+		<div id="page">
+			<div class="login-bgcl">
+				<div class="login-theme"></div>
+				<div class="login-box">
+					<form>
+						<div class="login-panler">
+							<ul class="login-tab">
+								<li>
+									<a href="#" class="active checked">短信登录</a>
+								</li>
+								<li>
+									<a href="#" class="a">密码登录</a>
+								</li>
+							</ul>
+							<div class="login-from">
+								<ul>
+									<!--手机号码-->
+									<li class="err-meg">
+										<label>
+											<b style=""></b>
+											<span id="errormesstxt"></span>
+										</label>
+									</li>
+									<li class="username">
+										<input class="ltext" id="jmobile" type="text"/>
+										<label for="jmobile" class="j-mobile">手机号码</label>
+										<!--手机号码成功后弹出验证码信息-->
+										<label class="err-xinxi">
+											<p>新手机号将认为接受<a href="#">《走秀网用户协议》</a>并自动注册账号</p>
+										</label>
+									</li>
+									<!--手机号码验证成功后弹出的信息-->
+									
+									<li class="num">
+										<input class="num-text" id="numTe" type="text"/>
+										<label for="numTe" class="check-num">验证码</label>
+										<span id="code2" class="mycode"></span>
+									</li>
+									
+									<!--短信验证-->
+									<li class="err-msgCode">
+										<label>
+											<b style=""></b>
+											<span id="err-msgCode"></span>
+										</label>
+									</li>
+									<li class="msgCode">
+										<input class="mtext" id="jcode" type="text"/>
+										<label for="jcode" class="duanxin">短信验证码</label>
+										<a href="#">获取验证码</a>
+										<span class="clearx"></span>
+									</li>
+									
+									<!--自动登录按钮-->
+									<li class="check-opt">
+										<label for="auto-check">
+											<input type="checkbox" id="auto-check" />两周内自动登录
+										</label>
+										<a href="#">找回密码</a>
+									</li>
+									<li class="clfix">
+										<button class="login-btn" id="login_Btn" type="submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer-xiu">
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+				<b>|</b>
+				<a href="#">关于走秀</a>
+			</div>
+			<div class="footer-tip">
+				Copyright © 2008-
+				<script>document.write(new Date().getFullYear());</script>
+				<a href="index.html">Xiu.com</a>
+				 版权所有 . 粤ICP备07502993号
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/login-in.js" ></script>
+		<script type="text/javascript" src="js/js.KinerCode.js" ></script>
+		<script type="text/javascript">
+			var inp2 = document.getElementById('numTe');
+			var code2 = document.getElementById('code2');
+			
+			var c2 = new KinerCode({
+	        len: 4,//需要产生的验证码长度
+	        chars: ["1+2","3+15","6*8","8/4","22-15","6-0","1+2"],//问题模式:指定产生验证码的词典，若不给或数组长度为0则试用默认字典
+	//        chars: [
+	//            1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
+	//            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+	//            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+	//        ],//经典模式:指定产生验证码的词典，若不给或数组长度为0则试用默认字典
+	        question:true,//若给定词典为算数题，则此项必须选择true,程序将自动计算出结果进行校验【若选择此项，则可不配置len属性】,若选择经典模式，必须选择false
+	        copy: false,//是否允许复制产生的验证码
+	        bgColor:"",//背景颜色[与背景图任选其一设置]
+	        bgImg:"",//若选择背景图片，则背景颜色失效
+	        randomBg : true,//若选true则采用随机背景颜色，此时设置的bgImg和bgColor将失效
+	        inputArea: inp2,//输入验证码的input对象绑定【 HTMLInputElement 】
+	        codeArea: code2,//验证码放置的区域【HTMLDivElement 】
+	        click2refresh:true,//是否点击验证码刷新验证码
+	        false2refresh:true,//在填错验证码后是否刷新验证码
+	        validateEven : "blur",//触发验证的方法名，如click，blur等
+	        validateFn : function(result,code){//验证回调函数
+	            if(result){
+	                alert('验证成功');
+	            }else{
+					alert('验证码错误');
+	            }
+	        }
+	    });
+		</script>
+	</body>
+</html>
